@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Darling I'd Wait For You</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+      #overlay {
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #play-box {
+        background-color: #540808;
+        padding: 25px 50px;
+        border-radius: 15px;
+        border: 3px solid #340202;
+      }
+      #play-box h1 {
+        margin: 0;
+        color: #ffc0cb;
+      }
+
+      #footer-message {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        z-index: 50;
+        pointer-events: none;
+      }
+
+      #footer-message span {
+        display: inline-block;
+        opacity: 0;
+        transition: opacity 0.7s ease-in-out;
+      }
+
+      #footer-message span.visible {
+        opacity: 1;
+      }
+
+      #credits-footer {
+        position: fixed;
+        top: 15px;
+        width: 100%;
+        text-align: center;
+
+        color: rgba(255, 255, 255, 0.4);
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        z-index: 50;
+        pointer-events: none;
+
+        opacity: 0;
+        transition: opacity 3s ease-in-out 1s;
+      }
+
+      #credits-footer.visible {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="heart"></canvas>
+
+    <div id="overlay">
+      <div id="play-box">
+        <h1>❤️‍🩹</h1>
+        <p>Clique aqui, momo!</p>
+      </div>
+    </div>
+
+    <div id="footer-message"></div>
+
+    <div id="credits-footer">
+      <p>Bia Souto © 2025</p>
+    </div>
+
+    <audio id="musica-fundo" src="darling_id_wait_for_you.mp3"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
