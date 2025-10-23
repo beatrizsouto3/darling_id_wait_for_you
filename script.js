@@ -168,39 +168,25 @@ const LYRIC_PHRASE = "Darling I'd Wait For You...";
 const WORD_APPEAR_SPEED_MS = 600;
 
 function startLyricTimer() {
-  // Separa a sua frase em uma lista de palavras
   const words = LYRIC_PHRASE.split(" ");
   let wordIndex = 0;
 
   const timer = setInterval(function () {
-    // 1. Verifica se todas as palavras já apareceram
     if (wordIndex >= words.length) {
-      clearInterval(timer); // Para o temporizador
+      clearInterval(timer);
       return;
     }
 
-    // 2. Cria um novo elemento <span> para a palavra
     const wordSpan = document.createElement("span");
 
-    // =======================================================
-    // --- ESTA É A LINHA QUE FOI ALTERADA ---
-    //
-    // Trocamos .textContent por .innerHTML
-    // e o espaço ' ' por '&nbsp;'
-    //
     wordSpan.innerHTML = words[wordIndex] + "&nbsp;";
-    // =======================================================
 
-    // 3. Adiciona o <span> (ainda invisível) ao rodapé
     footerMessage.appendChild(wordSpan);
 
-    // 4. Força o navegador a renderizar o <span> invisível
-    //    e, logo em seguida, adiciona a classe 'visible'
     setTimeout(function () {
       wordSpan.classList.add("visible");
     }, 50);
 
-    // 5. Prepara para a próxima palavra
     wordIndex++;
   }, WORD_APPEAR_SPEED_MS);
 }
